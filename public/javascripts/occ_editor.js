@@ -1947,7 +1947,7 @@
 
   function editor_startup(string, is_complete) {
     //$('.connection-state').html(string);
-    $('#editor-startup').append($('<p>' + string + '</p>'));
+    //$('#editor-startup').append($('<p>' + string + '</p>'));
     if (is_complete) {
       $('#editor-startup').hide();
       $('#editor-container').show();
