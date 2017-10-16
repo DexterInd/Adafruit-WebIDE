@@ -114,7 +114,7 @@
   };
 
   occEditor.init = function(id) {
-    occEditor.set_page_title("Dexter Industries");
+    occEditor.set_page_title("DexterOS");
 
     editor = ace.edit("editor");
     editor.setTheme("ace/theme/merbivore_soft");
@@ -374,7 +374,7 @@
   occEditor.set_page_title = function(name) {
     //update page title
     if (name === 'filesystem') {
-      name = "Dexter Industries";
+      name = "DexterOS";
     }
     document.title = name + "- WebIDE";
   };
@@ -972,7 +972,7 @@
     $('#trace-container').hide();
 
     socket.emit('trace-file', {file: file});
-    
+
     $(document).on('click touchstart', '.close-trace', close_trace);
   };
 
@@ -1052,7 +1052,7 @@
             $('#editor-output #pre-wrapper pre').append(document.createTextNode(data.content[d]));
           }
         }
-        
+
 
       } else if (data.cmd === "COMPLETE" || data.cmd === "ERROR_COMPLETE") {
         occEditor.debug_toggle_buttons(false, true);
@@ -1062,14 +1062,14 @@
             editor.session.removeMarker(id);
           }
         }
-        
+
         var message = "";
         if (data.cmd === "COMPLETE") {
           message = "--- Program Completed Successfully ---\n";
         } else {
           message = "--- Program Exited with an Exception ---\n";
         }
-        
+
         $('#editor-output #pre-wrapper pre').append(document.createTextNode(message));
       }
 
@@ -1255,7 +1255,7 @@
       var path_array = source.split('/');
       var directory = path_array[path_array.length - 1];
       var destination = '/filesystem/my-pi-projects/' + directory;
-      
+
       davFS.copy(source, destination, false, function(err, status) {
         socket.emit('commit-file', { file: {path: destination, name: directory}, message: "Copied to my-pi-projects " + directory});
         $('.copy-project').replaceWith($("<span>Project copy completed...</span>"));
@@ -1337,7 +1337,7 @@
 
       $('#schedule-manager').hide();
       $('#editor').show();
-      
+
       var file = $('.filesystem li.file-open').data('file');
       if (file) {
         $(document).trigger('file_open', file);
@@ -1468,7 +1468,7 @@
         location.reload(true);
       }, 1500);
     });
-    
+
     $(document).on('click touchstart', '.editor-update-link', update_editor);
   }
 
@@ -1549,7 +1549,7 @@
                       }).appendTo('body');
       $(document).mousemove(function(event){
         ghostbar.css("top",event.pageY+2);
-        
+
       });
     }
 
